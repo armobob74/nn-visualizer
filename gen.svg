@@ -1,0 +1,21 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<line x1="0.0" y1="10.0" x2="50.0" y2="10.0" stroke="red" stroke-width="-0.47058823529411764"/>
+<line x1="0.0" y1="10.0" x2="50.0" y2="50.0" stroke="green" stroke-width="1.0"/>
+<line x1="0.0" y1="10.0" x2="50.0" y2="90.0" stroke="red" stroke-width="0.0"/>
+<line x1="0.0" y1="50.0" x2="50.0" y2="10.0" stroke="green" stroke-width="0.5490196078431373"/>
+<line x1="0.0" y1="50.0" x2="50.0" y2="50.0" stroke="red" stroke-width="-0.25098039215686274"/>
+<line x1="0.0" y1="50.0" x2="50.0" y2="90.0" stroke="green" stroke-width="0.38823529411764707"/>
+<line x1="0.0" y1="90.0" x2="50.0" y2="10.0" stroke="green" stroke-width="0.25098039215686274"/>
+<line x1="0.0" y1="90.0" x2="50.0" y2="50.0" stroke="green" stroke-width="0.47058823529411764"/>
+<line x1="0.0" y1="90.0" x2="50.0" y2="90.0" stroke="red" stroke-width="-0.12549019607843137"/>
+<line x1="50.0" y1="10.0" x2="100.0" y2="10.0" stroke="green" stroke-width="0.47058823529411764"/>
+<line x1="50.0" y1="50.0" x2="100.0" y2="10.0" stroke="red" stroke-width="-0.38823529411764707"/>
+<line x1="50.0" y1="90.0" x2="100.0" y2="10.0" stroke="green" stroke-width="0.12549019607843137"/>
+<circle cx="0.0" cy="10.0" r="3"/>
+<circle cx="0.0" cy="50.0" r="3"/>
+<circle cx="0.0" cy="90.0" r="3"/>
+<circle cx="50.0" cy="10.0" r="3"/>
+<circle cx="50.0" cy="50.0" r="3"/>
+<circle cx="50.0" cy="90.0" r="3"/>
+<circle cx="100.0" cy="10.0" r="3"/>
+</svg>
