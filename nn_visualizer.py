@@ -23,11 +23,12 @@ class NNVis:
     def __init__(self, weights='default'):
         if weights == 'default':
             weights = [
-                        [[-120, 255, 0],
-                         [140, -64, 99],
-                         [64, 120, -32]],
+                        [[-120, 255, 0,111],
+                         [140, -64, 99,50],
+                         [64, 120, -32,-230]],
                         [[120],
                          [-99],
+                         [99],
                          [ 32]]
                     ]
         self.weights = weights
@@ -86,18 +87,19 @@ class NNVis:
             x1 = x2
             y_list_1 = y_list_2
         self.lines = lines
-
     
-    def visualize(self):
-        print('<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">')
+        svg = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">'
         for line in self.lines:
-            print(line.svg)
+            svg += line.svg
         for node in self.nodes:
-            print(node.svg)
-        print('</svg>')
+            svg += node.svg
+        svg += '</svg>'
 
+        self.svg = svg
 
+    def writeSvg(self,filepath='example.svg'):
+        with open(filepath,'w') as f:
+            f.write(self.svg)
 
 if __name__ == "__main__":  
     nnvis = NNVis()
-    nnvis.visualize()
