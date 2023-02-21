@@ -20,9 +20,7 @@ class NNVis:
     """
     Visualize a neural network. All you need are weights!
     """
-    def __init__(self, weights='default'):
-        if weights == 'default':
-            weights = [
+    def __init__(self, weights = [
                         [[-120, 255, 0,111],
                          [140, -64, 99,50],
                          [64, 120, -32,-230]],
@@ -30,7 +28,7 @@ class NNVis:
                          [-99],
                          [99],
                          [ 32]]
-                    ]
+                        ]):
         self.weights = weights
 
         node_counts = [len(w) for w in weights]
