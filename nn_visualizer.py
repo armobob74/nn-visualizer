@@ -1,4 +1,6 @@
 from numpy import matrix
+import pdb
+from IPython.display import SVG
 class Node:
     """
     Simple class representing the svg code for a single node
@@ -25,7 +27,20 @@ class NNVis:
                          [64, 120, -32,-230]],
                         [[120, -99,32]]
                         ]):
+        if type(weights) == list:
             self.fromList(weights)
+        elif getattr(weights, "state_dict", False): 
+            # the getattr function lets us check for a torch module without requiring us to import torch
+            self.fromTorchModule(weights)
+        else:
+            raise Exception("NNVis does not recognize your input")
+                    
+
+
+    def fromTorchModule(self, network):
+        sd = network.state_dict()
+        weights = [sd[key].tolist() for key in sd if key.endswith('weight')]
+        self.fromList(weights)
     def fromList(self,weights):
         #transposing the weights to make it easier to match them to lines later
         transposed_weights = [matrix(w).T.tolist() for w in weights]
@@ -99,6 +114,8 @@ class NNVis:
     def writeSvg(self,filepath='example.svg'):
         with open(filepath,'w') as f:
             f.write(self.svg)
+    def displaySvg(self):
+        return SVG(self.svg)
 
 if __name__ == "__main__":  
     nnvis = NNVis()
