@@ -25,6 +25,8 @@ class NNVis:
                          [64, 120, -32,-230]],
                         [[120, -99,32]]
                         ]):
+            self.fromList(weights)
+    def fromList(self,weights):
         #transposing the weights to make it easier to match them to lines later
         transposed_weights = [matrix(w).T.tolist() for w in weights]
         weights = transposed_weights
