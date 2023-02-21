@@ -61,7 +61,7 @@ class NNVis:
         viewbox_height = 100
         viewbox_width = 100
         num_layers = len(weights)
-        x_padding = 0
+        x_padding = 4
         y_padding = 10
         layer_width = (viewbox_width - 2 * x_padding) / (num_layers)
         cx_list =[x_padding + i * layer_width for i in range(num_layers+1)]
