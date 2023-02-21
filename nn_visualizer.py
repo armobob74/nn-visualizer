@@ -1,4 +1,3 @@
-from numpy import linspace
 import pdb
 
 class Node:
@@ -49,26 +48,34 @@ class NNVis:
         num_layers = len(weights)
         x_padding = 0
         y_padding = 10
-        layer_width = viewbox_width / (num_layers + 1)
+        layer_width = (viewbox_width - 2 * x_padding) / (num_layers)
+        cx_list =[x_padding + i * layer_width for i in range(num_layers+1)]
 
-        cx_list = linspace(x_padding, viewbox_width-x_padding, num_layers+1)
 
         node_count_iter = iter(node_counts)
         nodes = []
+        cy_list_list = []
+        node_gap_y = (viewbox_height - 2 * y_padding) / max(node_counts)
         for cx in cx_list:
-            cy_list = linspace(y_padding, viewbox_height-y_padding, next(node_count_iter))
+            num_nodes = next(node_count_iter)
+
+            node_col_height = num_nodes * node_gap_y - 2 * y_padding 
+            y_start_point = (viewbox_height - node_col_height) / 2
+            cy_list =[y_start_point + i * node_gap_y for i in range(num_nodes)]
+            cy_list_list.append(cy_list)
             for cy in cy_list:
                 nodes.append(Node(cx,cy))
         self.nodes = nodes
 
         lines = []
         cx_iter = iter(cx_list)
+        cy_iter = iter(cy_list_list)
         node_count_iter = iter(node_counts)
         x1 = next(cx_iter)
-        y_list_1 = linspace(y_padding, viewbox_height-y_padding, next(node_count_iter))
+        y_list_1 = next(cy_iter)
         for w in weights:
             x2 = next(cx_iter)
-            y_list_2 = linspace(y_padding, viewbox_height-y_padding, next(node_count_iter))
+            y_list_2 = next(cy_iter)
             
             row_iter = iter(w)
             for y1 in y_list_1:
