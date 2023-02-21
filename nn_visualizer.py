@@ -1,3 +1,4 @@
+from numpy import matrix
 class Node:
     """
     Simple class representing the svg code for a single node
@@ -27,7 +28,10 @@ class NNVis:
                          [99],
                          [ 32]]
                         ]):
-        self.weights = weights
+        #transposing the weights to make it easier to match them to lines later
+        transposed_weights = [matrix(w).T.tolist() for w in weights]
+        weights = transposed_weights
+        self.weights = transposed_weights
 
         node_counts = [len(w) for w in weights]
         node_counts.append(len(weights[-1][0]))
