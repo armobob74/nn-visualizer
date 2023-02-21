@@ -1,5 +1,3 @@
-import pdb
-
 class Node:
     """
     Simple class representing the svg code for a single node
@@ -80,7 +78,7 @@ class NNVis:
             for y1 in y_list_1:
                 weight_row = next(row_iter)
                 for y2,weightval in zip(y_list_2, weight_row):
-                    line_width = weightval / maxweight
+                    line_width = abs(weightval / maxweight)
                     lines.append(Line(x1,y1,x2,y2,line_width))
             x1 = x2
             y_list_1 = y_list_2
