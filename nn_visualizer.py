@@ -23,10 +23,7 @@ class NNVis:
                         [[-120, 255, 0,111],
                          [140, -64, 99,50],
                          [64, 120, -32,-230]],
-                        [[120],
-                         [-99],
-                         [99],
-                         [ 32]]
+                        [[120, -99,32]]
                         ]):
         #transposing the weights to make it easier to match them to lines later
         transposed_weights = [matrix(w).T.tolist() for w in weights]
